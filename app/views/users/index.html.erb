@@ -17,15 +17,11 @@
           <small><%= time_ago_in_words(story.created_at) %> ago</small>
           <p><%= story.content.truncate(150)  %></p>
           <p>
-          <% if user_signed_in? && current_user.admin? %>
+          <% if user_signed_in? %>
             <%= link_to 'Show', story, class: "btn btn-primary" %>
             <%= link_to 'Edit', edit_story_path(story), class: "btn btn-warning" %>
-            <%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-          <% elsif story.user == current_user %>
-            <%= link_to 'Show', story, class: "btn btn-primary" %>
-            <%= link_to 'Edit', edit_story_path(story), class: "btn btn-warning" %>
-            <%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-          <% else %>  
+            <%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>            
+          <% else %>
             <%= link_to 'Show', story, class: "btn btn-primary" %>
           <% end %>
           </p>
@@ -33,4 +29,7 @@
       </div>
     </div>
   <% end %>
-</div
+</div>
+
+
+<br>

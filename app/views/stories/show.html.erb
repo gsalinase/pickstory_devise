@@ -29,9 +29,12 @@
         <div class="col-md-8"></div>
         <div class="col-md-2">
           <p>
-            <% if user_signed_in? %>
+            <% if user_signed_in? && current_user.admin? %>
               <%= link_to 'Edit', edit_story_path(@story), class: "btn btn-warning btn-sm" %>
               <%= link_to 'Back', stories_path, class: "btn btn-info btn-sm" %>
+            <% if @user_stories %>
+              
+            <% end %>
             <% else %>
                <%= link_to 'Back', stories_path, class: "btn btn-info btn-sm" %>
             <% end %>

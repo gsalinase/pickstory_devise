@@ -5,6 +5,7 @@ class StoriesController < ApplicationController
   # GET /stories.json
   def index
     @stories = Story.all
+    @user_stories = current_user.stories
   end
 
   # GET /stories/1
@@ -25,6 +26,7 @@ class StoriesController < ApplicationController
   # POST /stories.json
   def create
     @story = Story.new(story_params)
+    @story.user = current_user
 
     respond_to do |format|
       if @story.save

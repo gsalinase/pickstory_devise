@@ -20,8 +20,7 @@
           <ul class="dropdown-menu">
             <% if user_signed_in? %>
               <li><%=link_to 'Create PicStory', new_story_path %></li>
-              <li><%=link_to 'My PicStories', stories_path %></li>
-              <li><a href="#">'My Profile'</a></li>
+              <li><%=link_to 'My PicStories', users_path %></li>
               <li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class:'smoothScroll' %> </li>
               <% else %>
               <li><%= link_to "Log In", new_user_session_path, class:'smoothScroll'%></li>
